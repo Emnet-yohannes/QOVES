@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  /* 375px / 16 = 23.4375rem */
+  --breakpoint-sm: 23.44rem;  
+  /* 768px / 16 = 48rem */
+  --breakpoint-md: 48rem;     
+  /* 1024px / 16 = 64rem (Standard laptop transition) */
+  --breakpoint-lg: 90rem;     
+  /* 1920px / 16 = 120rem */
+  --breakpoint-xl: 120rem;    
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
