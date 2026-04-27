@@ -1,38 +1,47 @@
 "use client";
 
+import { useCallback, useState } from "react";
+
 const steps = [
   {
     id: 1,
     title: "Get your expert facial analysis",
-    active: false,
   },
   {
     id: 2,
     title: "Visualise your best looking self",
-    active: true,
   },
   {
     id: 3,
     title: "Get your personalized glow-up protocol",
-    active: false,
   },
   {
     id: 4,
     title: "Track your progress and see dramatic results",
-    active: false,
   },
 ];
 
 export default function StepsSection() {
+  const [activeStepId, setActiveStepId] = useState<number>(2);
+
+  const handleStepSelect = useCallback((id: number) => {
+    setActiveStepId(id);
+  }, []);
+
   return (
     <section className="w-full px-4 md:px-8 lg:px-12 py-16">
       <div className="max-w-7xl mx-auto">
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
           {steps.map((step) => (
-            <StepCard key={step.id} {...step} />
+            <StepCard
+              key={step.id}
+              id={step.id}
+              title={step.title}
+              active={activeStepId === step.id}
+              onSelect={handleStepSelect}
+            />
           ))}
 
         </div>
@@ -45,13 +54,21 @@ function StepCard({
   id,
   title,
   active,
+  onSelect,
 }: {
   id: number;
   title: string;
   active?: boolean;
+  onSelect: (id: number) => void;
 }) {
   return (
     <div
+      role="button"
+      tabIndex={0}
+      onClick={() => onSelect(id)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") onSelect(id);
+      }}
       className={`
         group relative rounded-2xl border p-6 transition-all duration-300
         ${active

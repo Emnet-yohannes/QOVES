@@ -97,7 +97,7 @@ export default function AnalysisSection() {
 
             <div className="absolute left-1/2 -translate-x-1/2 bottom-0 md:top-1/12 lg:-top-1/3 2xl:-top-1/4 z-20 w-full min-w-[366px] md:max-w-[736px]">
               <Image
-                src="/Qoves_22_8_25_43111.png"
+                src="/QovesAnalysisImage.png"
                 alt="Face analysis"
                 width={736}
                 height={800}

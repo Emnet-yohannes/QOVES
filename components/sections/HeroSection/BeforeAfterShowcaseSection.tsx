@@ -61,7 +61,7 @@ export default function BeforeAfter() {
 
         <div className="absolute inset-0 flex items-center justify-between px-4">
           <FaceCard label="Before" img="/Before.png" />
-          <FaceCard label="After" img="/Before(1).png" />
+          <FaceCard label="After" img="/After.png" />
         </div>
       </div>
     </section>
